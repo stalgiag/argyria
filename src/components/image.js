@@ -1,32 +1,72 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
+// eslint-disable-next-line no-unused-vars
+function objectToKeyArray(obj) {
+  return Object.keys(obj);
+}
 
-const Image = () => {
-  const data = useStaticQuery(graphql`
+function getLastStringInPath(path) {
+  return path.split('/').pop();
+}
+
+// function getImage(path) {
+//   const relPath = `images/${path}`;
+//   console.log(relPath);
+//   return useStaticQuery(graphql`
+//   query ($relPath: String!){
+//     fileName: file(relativePath: { eq: $relPath }) {
+//       childImageSharp {
+//         fluid(quality: 100) {
+//           ...GatsbyImageSharpFluid
+//         }
+//       }
+//     }
+//   }`);
+// }
+
+// Useful for when I want to load all of the images in a folder
+const getAllImages = function () {
+  return useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
+      allImageSharp {
+        edges {
+          node {
+            id
+            fluid (quality: 100) {
+              ...GatsbyImageSharpFluid
+              presentationWidth
+            }
           }
         }
       }
     }
-  `)
+`);
+};
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-}
 
-export default Image
+const Images = ({ path }) => {
+  const data = getAllImages();
+  const paths = path.split(',');
+  const res = [];
+  for (let i = 0; i < paths.length; i += 1) {
+    const image = data.allImageSharp.edges.find((el) => getLastStringInPath(el.node.fluid.src) === paths[i]);
+    if (image) {
+      res.push(image.node.fluid);
+    }
+  }
+  if (res.length > 0) {
+    return res.map((el, index) => (
+      (<Img fluid={el} key={index} />)
+    ));
+  }
+  return null;
+};
+
+Images.propTypes = {
+  path: PropTypes.string.isRequired,
+};
+
+export default Images;
