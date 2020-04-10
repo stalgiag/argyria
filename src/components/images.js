@@ -37,7 +37,6 @@ const Images = ({ path }) => {
     </li>
   ))
 
-  console.log(res)
   return (
     <>
     <Masonry

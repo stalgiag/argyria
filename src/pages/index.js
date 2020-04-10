@@ -11,7 +11,7 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Main" />
+        <SEO title="---" />
         <div id="gallery">
             <Images />
         </div>

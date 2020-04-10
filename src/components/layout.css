@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Blocus";
+  src: url("../fonts/blocuswebfont.ttf");
+}
 
 #gallery {
   margin-left:5%;
@@ -7,9 +11,22 @@ ul {
   list-style: none;
 }
 
+h1 a{
+  font-family: Blocus;
+  font-size: 2em;
+}
+
+header {
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+
+  background-color: transparent;
+  position:absolute;
+  z-index:9999;
+}
+
 
 html {
-  font-family: sans-serif;
+  font-family: Blocus;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   background: #3336FF;

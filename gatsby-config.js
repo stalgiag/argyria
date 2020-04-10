@@ -24,6 +24,15 @@ module.exports = {
         background_color: `#3336FF`,
         theme_color: `#3336FF`,
         display: `minimal-ui`,
+        icon: `src/icon/globe.png`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Blocus"]
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
