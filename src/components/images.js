@@ -9,11 +9,14 @@ const masonryOptions = {
   stagger: 275
 };
 
+let vis = false;
+
 const Images = ({ path }) => {
   const data = useStaticQuery(graphql`
   query {
     allFile(
       filter: {
+        sourceInstanceName: {eq: "images"},
         extension: { regex: "/(jpg)|(png)|(jpeg)/" }
       }
     ) {
@@ -30,6 +33,8 @@ const Images = ({ path }) => {
     }
   }
 `)
+
+
   const res = data.allFile.edges.map(image => (
     <li className="image-element-class">
       <img src={image.node.childImageSharp.fluid.src} />
@@ -38,12 +43,12 @@ const Images = ({ path }) => {
 
   return (
     <>
-    <Masonry
-       elementType={'ul'} // default 'div'
-       options={masonryOptions} // default {}
-   >
-    {res}
-   </Masonry>
+      <Masonry
+        elementType={'ul'} // default 'div'
+        options={masonryOptions} // default {}
+      >
+        {res}
+      </Masonry>
     </>
   );
 };
