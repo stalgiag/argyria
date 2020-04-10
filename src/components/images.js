@@ -1,8 +1,29 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import Masonry from 'react-masonry-component';
 
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+
+// const childElements = this.props.children.map(function(element){
+//   return (
+//        <li className="image-element-class">
+//            <Img src={element.fluid} />
+//        </li>
+//    );
+// });
+
+// return (
+   
+// );
+
+const masonryOptions = {
+  transitionDuration: '0.5s',
+  columnWidth: 400,
+  gutter: 10,
+  // fitWidth: true
+};
+
+const imagesLoadedOptions = { background: '.my-bg-image-el' }
 
 const Images = ({ path }) => {
   const data = useStaticQuery(graphql`
@@ -25,17 +46,24 @@ const Images = ({ path }) => {
     }
   }
 `)
+  const res = data.allFile.edges.map(image => (
+    <li className="image-element-class">
+      <img src={image.node.childImageSharp.fluid.src} />
+    </li>
+  ))
 
-return (
-  <Masonry>
-    {data.allFile.edges.map(image => (
-       <Img
-        fluid={image.node.childImageSharp.fluid}
-        alt={image.node.base.split(".")[0]} // only use section of the file extension with the filename
-      />
-    ))}
-  </Masonry>
-);
+  console.log(res)
+  return (
+    <>
+    <Masonry
+       className={'my-gallery-class'} // default ''
+       elementType={'ul'} // default 'div'
+       options={masonryOptions} // default {}
+   >
+    {res}
+   </Masonry>
+    </>
+  );
 };
 
 export default Images;
