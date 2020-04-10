@@ -1,13 +1,6 @@
-.my-gallery-class {
-  /* margin: 0 auto; */
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 1em; */
-}
 
 #gallery {
   margin-left:5%;
-  /* margin: 0 auto; */
 }
 
 ul {

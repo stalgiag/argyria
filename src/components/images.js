@@ -2,28 +2,13 @@ import React from 'react';
 import Masonry from 'react-masonry-component';
 
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
-
-// const childElements = this.props.children.map(function(element){
-//   return (
-//        <li className="image-element-class">
-//            <Img src={element.fluid} />
-//        </li>
-//    );
-// });
-
-// return (
-   
-// );
 
 const masonryOptions = {
-  transitionDuration: '0.5s',
+  transitionDuration: '2s',
   columnWidth: 400,
   gutter: 10,
-  // fitWidth: true
+  stagger: 275
 };
-
-const imagesLoadedOptions = { background: '.my-bg-image-el' }
 
 const Images = ({ path }) => {
   const data = useStaticQuery(graphql`
@@ -56,7 +41,7 @@ const Images = ({ path }) => {
   return (
     <>
     <Masonry
-       className={'my-gallery-class'} // default ''
+       className={'gallery-class'} // default ''
        elementType={'ul'} // default 'div'
        options={masonryOptions} // default {}
    >
