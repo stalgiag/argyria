@@ -4,7 +4,6 @@ import Masonry from 'react-masonry-component';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const masonryOptions = {
-  transitionDuration: '2s',
   columnWidth: 400,
   gutter: 10,
   stagger: 275
@@ -40,7 +39,6 @@ const Images = ({ path }) => {
   return (
     <>
     <Masonry
-       className={'gallery-class'} // default ''
        elementType={'ul'} // default 'div'
        options={masonryOptions} // default {}
    >

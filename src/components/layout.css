@@ -3,7 +3,18 @@
   src: url("../fonts/blocuswebfont.ttf");
 }
 
+#gateway {
+  mix-blend-mode: hue;
+  position: fixed;
+  z-index:9999;
+  width:100%;
+  height:100%;
+  background-color:blue;
+}
+
 #gallery {
+  filter: blur(10px);
+
   margin-left:5%;
 }
 
@@ -26,12 +37,15 @@ header {
 
 
 html {
+  /* overflow: hidden; */
   font-family: Blocus;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   background: #3336FF;
 }
 body {
+  /* overflow-y:hidden; */
+  height:100%;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -215,7 +229,6 @@ textarea {
 html {
   font: 112.5%/1.45em georgia, serif;
   box-sizing: border-box;
-  overflow-y: scroll;
 }
 * {
   box-sizing: inherit;
