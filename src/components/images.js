@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 const masonryOptions = {
   columnWidth: 400,
   gutter: 10,
-  stagger: 275
+  stagger: 0
 };
 
 let vis = false;

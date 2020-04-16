@@ -58,6 +58,7 @@ header {
 
 
 html {
+  background: rgba(0, 0, 255, 1);
   /* overflow: hidden; */
   font-family: Blocus;
   -ms-text-size-adjust: 100%;
