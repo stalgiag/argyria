@@ -2,8 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `argyria, or full-color spread`,
     description: `A place for reflection.`,
-    author: `@gatsbyjs`,
+    author: `@stalgiag`,
   },
+  pathPrefix: "/argyria",
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -45,6 +46,5 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ],
-  pathPrefix: "/argyria",
+  ]
 }
