@@ -2,15 +2,15 @@ import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import Img from "gatsby-image"
 import dropIcon from "../icon/drop-icon.png"
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-disableBodyScroll();
+// import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+// disableBodyScroll();
 
 function Gateway() {
     
 
     const onDrop = useCallback((acceptedFiles) => {
         acceptedFiles.forEach((file) => {
-            clearAllBodyScrollLocks();
+            // clearAllBodyScrollLocks();
             document.getElementById('gateway').style.visibility = 'hidden'
             const reader = new FileReader()
             reader.onabort = () => console.log('file reading was aborted')
