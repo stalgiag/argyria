@@ -2,6 +2,7 @@
   "name": "argyria",
   "private": true,
   "description": "or full color spread",
+  "homepage": "spreading.blue",
   "version": "0.1.0",
   "author": "Stalgia Grigg",
   "dependencies": {
