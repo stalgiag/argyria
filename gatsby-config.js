@@ -4,7 +4,6 @@ module.exports = {
     description: `A place for reflection.`,
     author: `@stalgiag`,
   },
-  pathPrefix: "/argyria",
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
